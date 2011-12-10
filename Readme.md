@@ -13,10 +13,10 @@ This is a library for using the tesseract OCR in ruby applications
 *Please Note the default language is english*
 
     tess = Tesseract::Process.new("photo.jpg")
-    tess.to_s
+    tess.results
     
 Config options are also supported
 
     tess = Tesseract::Process.new("photo.jpg", {:lang => 'some language', :chop_enable => 0})
-    tess.to_s
+    tess.results
     
