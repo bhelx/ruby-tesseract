@@ -8,16 +8,15 @@ module Tesseract
     attr_accessor :lang
     CONVERT_COMMAND = 'convert'
     TESSERACT_COMMAND = 'tesseract'
-  
+
     def initialize(image_name, options = {})
-      DependencyChecker.check!
       @image = Pathname.new(image_name)
       @hash = Digest::MD5.hexdigest("#{@image}-#{Time.now}")
       @lang = options[:lang].nil? ? 'eng' : options.delete(:lang)
       @options = options
     end
   
-    def to_s
+    def results
       @out ||= process!
     end
   
