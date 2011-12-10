@@ -37,7 +37,7 @@ module Tesseract
     def tesseract_translation(image_file)
       temp_text_file = FileHandler.create_temp_file("#{@hash}")
       config_file = write_configs
-      system [TESSERACT_COMMAND, image_file, temp_text_file, "-l #{@lang}", config_file, "&> /dev/null"].join(" ")
+      system [TESSERACT_COMMAND, image_file, temp_text_file, "-l #{@lang}", config_file].join(" ")
       File.read("#{temp_text_file}.txt")
     end
     
