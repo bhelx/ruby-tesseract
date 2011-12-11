@@ -37,7 +37,7 @@ module Tesseract
       temp_text_file = FileHandler.create_temp_file("#{@hash}")
       config_file = write_configs
       system [TESSERACT_COMMAND, image_file, temp_text_file, "-l #{@lang}", config_file].join(" ")
-      File.read('#{temp_text_file}.txt').gsub(/[\x80-\xff]/,'')
+      File.read("#{temp_text_file}.txt").gsub(/[\x80-\xff]/,'')
     end
     
     def write_configs
