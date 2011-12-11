@@ -29,7 +29,7 @@ module Tesseract
   
     def to_tiff
       temp_file = FileHandler.create_temp_file("#{@hash}.tif")
-      system [CONVERT_COMMAND, '-type Grayscale +compress', image, temp_file].join(" ")
+      system [CONVERT_COMMAND, '-density 200 -units PixelsPerInch -type Grayscale +compress', image, temp_file].join(" ")
       temp_file
     end
   
